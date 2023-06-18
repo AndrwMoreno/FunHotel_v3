@@ -4,7 +4,7 @@
     <div class="page-title-box">
         <div class="row align-items-center">
             <div class="col-md-8">
-                <h6 class="page-title">Datos servicios</h6>
+                <h6 class="page-title">Datos usuarios</h6>
             </div>
 
             <div class="col-md-4">
@@ -62,11 +62,8 @@
                                     @endif
                                 </td>
                                 <td>
-                                    {{-- <a class="btn btn-info" href="{{ route('users.show', $user->id) }}">Ver</a> --}}
-                                    <a class="btn btn-warning" href="/edit-user/{{ $user->id }}"><i class="bi bi-pencil-square"></i></a>
-                                    {{-- {!! Form::open(['method' => 'DELETE', 'route' => ['users.destroy', $user->id], 'style' => 'display:inline']) !!}
-                                {!! Form::submit('Eliminar', ['class' => 'btn btn-danger']) !!}
-                                {!! Form::close() !!} --}}
+                                    <a class="btn btn-warning" href="{{ route('users.edit', $user->id) }}"><i
+                                            class="bi bi-pencil-square"></i></a>
                                     <form method="POST" action="{{ route('users.destroy', $user->id) }}"
                                         style="display:inline">
                                         @csrf

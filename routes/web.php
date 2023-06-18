@@ -51,7 +51,7 @@ Route::group(['middleware' => ['auth']], function () {
     // show usuario
     Route::get('/show-user/{id}', [UserController::class, 'show'])->name('users.show');
     // edit usuario
-    Route::get('/edit-user/{id}', [UserController::class, 'edit'])->name('users.edit');
+    // Route::get('/edit-user/{id}', [UserController::class, 'edit'])->name('users.edit');
     
     // create rol
     Route::get('/create-rol', [RoleController::class, 'create'])->name('roles.create');

@@ -50,12 +50,6 @@
                                     @can('role-edit')
                                         <a class="btn btn-warning" href="/edit-rol/{{ $role->id }}"><i class="bi bi-pencil-square"></i></a>
                                     @endcan
-                                    {{-- @can('role-delete')
-                            {!! Form::open(['method' => 'DELETE','route' => ['roles.destroy',
-                            $role->id],'style'=>'display:inline']) !!}
-                            {!! Form::submit('Eliminar', ['class' => 'btn btn-danger']) !!}
-                            {!! Form::close() !!}
-                            @endcan --}}
                                     @can('role-delete')
                                         <form method="POST" action="{{ route('roles.destroy', $role->id) }}"
                                             style="display:inline">
