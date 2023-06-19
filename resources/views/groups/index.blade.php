@@ -20,17 +20,18 @@
         <div class="card">
             <div class="card-body">
                 <div class="row row-cols-1 row-cols-md-3 g-4">
-                        @foreach ($groups as $group)
-                            <div class="card h-100">
-                                <img src="..." class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $group->name }}</h5>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-
-                                </div>
+                    @foreach ($groups as $group)
+                        <div class="card h-100">
+                            {{-- <img src="{{ asset('assets/images/logoSena.png') }}" class="card-img-top logo-img" alt="Logo"> --}}
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $group->name }}</h5>
+                                <p>Cantidad de usuarios: {{ $group->users()->count() }}</p>
+                                <a href="{{ route('groups.show', $group->id) }}" class="btn btn-primary">Ver</a>
+                                <a href="{{ route('groups.edit', $group->id) }}" class="btn btn-success">Editar Nombre</a>
+                                {{-- <a href="{{ route('groups.destroy', $group->id) }}" class="btn btn-danger">Eliminar</a> --}}
                             </div>
-                        @endforeach
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>

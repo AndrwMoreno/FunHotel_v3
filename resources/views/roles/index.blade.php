@@ -9,7 +9,8 @@
             @can('role-create')
                 <div class="col-md-4">
                     <div class="float-end d-none d-md-block">
-                        <a class="btn btn-primary" href="/create-rol">Registrar <i class="bi bi-plus-circle"></i></a>
+                        <a class="btn btn-primary" href="{{ route('roles.create') }}">Registrar <i
+                                class="bi bi-plus-circle"></i></a>
                     </div>
                 </div>
             @endcan
@@ -46,17 +47,49 @@
                                 <td>{{ ++$i }}</td>
                                 <td>{{ $role->name }}</td>
                                 <td>
-                                    <a class="btn btn-success" href="/show-rol/{{ $role->id }}"><i class="bi bi-info-circle"></i></a>
+                                    <a class="btn btn-success" href="{{ route('roles.show', $role->id) }}"><i
+                                            class="bi bi-info-circle"></i></a>
                                     @can('role-edit')
-                                        <a class="btn btn-warning" href="/edit-rol/{{ $role->id }}"><i class="bi bi-pencil-square"></i></a>
+                                        <a class="btn btn-warning" href="{{ route('roles.edit', $role->id) }}"><i
+                                                class="bi bi-pencil-square"></i></a>
                                     @endcan
                                     @can('role-delete')
-                                        <form method="POST" action="{{ route('roles.destroy', $role->id) }}"
-                                            style="display:inline">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger"><i class="bi bi-trash3"></i></button>
-                                        </form>
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                            data-bs-target="#confirmDeleteModal">
+                                            <i class="bi bi-trash3"></i>
+                                        </button>
+
+                                        <!-- Ventana modal de confirmación -->
+                                        <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog"
+                                            aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="confirmDeleteModalLabel">Confirmar
+                                                            Eliminación</h5>
+                                                        <button type="button" class="close" data-bs-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>¿Estás seguro de que deseas eliminar este registro?</p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <!-- Botón de cancelar -->
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Cancelar</button>
+                                                        <!-- Formulario de eliminación -->
+                                                        <form method="POST" action="{{ route('roles.destroy', $role->id) }}"
+                                                            style="display:inline">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     @endcan
 
                                 </td>

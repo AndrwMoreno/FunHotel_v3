@@ -70,8 +70,6 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-
-
                     <strong>Confirmar Contraseña:</strong>
                     <input type="password" name="confirm-password" placeholder="Confirmar Contraseña" class="form-control">
                 </div>
@@ -92,6 +90,5 @@
             </div>
 
         </form>
-    </div>
     </div>
 @endsection

@@ -10,7 +10,8 @@
             <div class="col-md-4">
                 <div class="float-end d-none d-md-block">
 
-                    <a class="btn btn-primary" href="/create-user">Registrar <i class="bi bi-plus-circle"></i></a>
+                    <a class="btn btn-primary" href="{{ route('users.create') }}">Registrar <i
+                            class="bi bi-plus-circle"></i></a>
 
                 </div>
             </div>

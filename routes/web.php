@@ -45,23 +45,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/users', UserController::class);
     Route::resource('/reservas', ReservaController::class);
     Route::resource('/products', ProductController::class);
-
-    // crear usuario
-    Route::get('/create-user', [UserController::class, 'create'])->name('users.create');
+    Route::resource('/groups', GroupController::class);
+    
     // show usuario
     Route::get('/show-user/{id}', [UserController::class, 'show'])->name('users.show');
-    // edit usuario
-    // Route::get('/edit-user/{id}', [UserController::class, 'edit'])->name('users.edit');
     
-    // create rol
-    Route::get('/create-rol', [RoleController::class, 'create'])->name('roles.create');
-    // show rol
-    Route::get('/show-rol/{id}', [RoleController::class, 'show'])->name('roles.show');
-    // edit rol
-    Route::get('/edit-rol/{id}', [RoleController::class, 'edit'])->name('roles.edit');
-    
-    
-    Route::resource('/groups', GroupController::class);
     // Ruta para añadir usuarios a un grupo
     Route::post('/groups/{group}/add-user', [GroupController::class, 'addUser'])->name('groups.addUser');
     // Ruta para eliminar usuarios de un grupo
