@@ -18,10 +18,11 @@ return new class extends Migration
             $table->string('segundoNombre')->nullable();
             $table->string('primerApellido');
             $table->string('segundoApellido')->nullable();
-            $table->string('tipoDocumento');
+            $table->string('documento');
             $table->bigInteger('numeroDocumento');
             $table->bigInteger('celular');
             $table->string('correo');
+            $table->string('estado')->default('activo');
             $table->timestamps();
         });
     }

@@ -38,6 +38,8 @@
                     <thead>
                         <th>No</th>
                         <th>Nombre</th>
+                        <th>Fecha de creación</th>
+                        <th>Estado</th>
                         <th>Acciones</th>
                     </thead>
 
@@ -46,6 +48,8 @@
                             <tr>
                                 <td>{{ ++$i }}</td>
                                 <td>{{ $role->name }}</td>
+                                <td>{{$role->created_at }}</td>
+                                <td>{{$role->estado}}</td>
                                 <td>
                                     <a class="btn btn-success" href="{{ route('roles.show', $role->id) }}"><i
                                             class="bi bi-info-circle"></i></a>

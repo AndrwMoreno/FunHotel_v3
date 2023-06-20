@@ -17,4 +17,5 @@ class Servicio extends Model
     ];
     public $timestamps = false;
     protected $guarded = [];
+    
 }

@@ -14,7 +14,7 @@
 
     @if (count($errors) > 0)
         <div class="alert alert-danger">
-            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+            <strong>Whoops!</strong> Hubo algunos problemas con tus datos.<br><br>
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -55,7 +55,7 @@
             </div>
         </div>
         <div class="col-md-12">
-            <button type="submit" class="btn btn-primary">Guardar</button>
+            <button type="submit" class="btn btn-primary" onclick="return confirm('¿Estás seguro de guardar los cambios?')">Guardar</button>
         </div>
     </form>
 @endsection
