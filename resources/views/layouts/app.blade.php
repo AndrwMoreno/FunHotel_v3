@@ -52,29 +52,22 @@
             <div class="d-flex">
                 <!-- LOGO -->
                 <div class="navbar-brand-box">
-                    <a href="/home" class="logo logo-dark">
+                    <a href="/home" class="logo logo-light">
                         <span class="logo-sm">
                             <img src="{{ asset('assets/images/logo-sm.png') }}" alt="" height="22">
                         </span>
                         <span class="logo-lg">
-                            <img src="{{asset('assets/images/logo-dark.png')}}" alt="" height="17">
-                        </span>
-                    </a>
-
-                    <a href="/home" class="logo logo-light">
-                        <span class="logo-sm">
-                            <img src="{{asset('assets/images/logo-sm.png')}}" alt="" height="22">
-                        </span>
-                        <span class="logo-lg">
-                            <img src="{{asset('assets/images/logo-light.png')}}" alt="" height="18">
+                            <img src="{{ asset('assets/images/logo-light.png') }}" alt="" height="18">
                         </span>
                     </a>
                 </div>
 
-                <button type="button" class="btn btn-sm px-3 font-size-24 header-item waves-effect"
-                    id="vertical-menu-btn">
-                    <i class="mdi mdi-menu"></i>
-                </button>
+                @auth
+                    <button type="button" class="btn btn-sm px-3 font-size-24 header-item waves-effect"
+                        id="vertical-menu-btn">
+                        <i class="mdi mdi-menu"></i>
+                    </button>
+                @endauth
             </div>
 
             <div class="d-flex">
@@ -105,8 +98,8 @@
                     <div class="dropdown d-inline-block">
                         <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="rounded-circle header-profile-user" src="{{asset('assets/images/users/user-4.jpg')}}"
-                                alt="Header Avatar">
+                            <img class="rounded-circle header-profile-user"
+                                src="{{ asset('assets/images/users/user-4.jpg') }}" alt="Header Avatar">
                         </button>
                         <div class="dropdown-menu dropdown-menu-end">
                             <!-- item-->
