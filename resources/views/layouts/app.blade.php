@@ -192,10 +192,16 @@
                                 <span>Reservas</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="/checkins" class=" waves-effect">
+                                <i class="bi bi-check-square"></i>  
+                                <span>Check-in</span>
+                            </a>
+                        </li>
 
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                <i class="ti-email"></i>
+                                <i class="bi bi-motherboard"></i>
                                 <span>Otros</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">

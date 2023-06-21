@@ -14,6 +14,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\GroupController;
+use App\Http\Controllers\CheckinController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/reservas', ReservaController::class);
     Route::resource('/products', ProductController::class);
     Route::resource('/groups', GroupController::class);
+    Route::resource('/checkins', CheckinController::class);
     
     // show usuario
     Route::get('/show-user/{id}', [UserController::class, 'show'])->name('users.show');
