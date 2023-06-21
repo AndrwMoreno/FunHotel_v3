@@ -48,10 +48,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/products', ProductController::class);
     Route::resource('/groups', GroupController::class);
     Route::resource('/checkins', CheckinController::class);
-    
+
     // show usuario
     Route::get('/show-user/{id}', [UserController::class, 'show'])->name('users.show');
-    
+
     // Ruta para añadir usuarios a un grupo
     Route::post('/groups/{group}/add-user', [GroupController::class, 'addUser'])->name('groups.addUser');
     // Ruta para eliminar usuarios de un grupo

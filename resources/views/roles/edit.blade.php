@@ -27,12 +27,23 @@
         @method('PATCH')
         @csrf
 
-        <div class="col-md-12">
+        <div class="col-md-6">
             <div class="form-group">
                 <strong>Nombre:</strong>
                 <input type="text" name="name" placeholder="Nombre" class="form-control" value="{{ $role->name }}">
             </div>
         </div>
+        <div class="col-md-6">
+                <label for="" class="form-label">Estado</label>
+                <select name="estado" id="estado" class="form-control" required>
+                  <option value="Activo" {{ $role->estado === 'Activo' ? 'selected' : '' }}>
+                    <span class="color-sola">Activo</span>
+                  </option>
+                  <option value="Inactivo" {{ $role->estado === 'Inactivo' ? 'selected' : '' }}>
+                    Inactivo</option>
+                </select>
+
+              </div>
         <div class="col-md-8">
             <div class="form-group">
                 <strong>Permisos:</strong>

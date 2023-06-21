@@ -112,7 +112,6 @@ class RoleController extends Controller
         ]);
         $role = Role::find($id);
         $role->name = $request->input('name');
-        $role->estado = $request->input('estado');
         $role->save();
         $role->syncPermissions($request->input('permission'));
         return redirect()->route('roles.index')
@@ -130,4 +129,5 @@ class RoleController extends Controller
         return redirect()->route('roles.index')
             ->with('success', 'Role deleted successfully');
     }
+
 }
