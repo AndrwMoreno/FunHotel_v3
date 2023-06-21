@@ -29,15 +29,16 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        $cliente = new Cliente();
-        $cliente->primerNombre = $request->input('primerNombre');
-        $cliente->segundoNombre = $request->input('segundoNombre');
-        $cliente->primerApellido = $request->input('primerApellido');
-        $cliente->segundoApellido = $request->input('segundoApellido');
-        $cliente->tipoDocumento = $request->input('tipoDocumento');
-        $cliente->numeroDocumento = $request->input('numeroDocumento');
+        $cliente = new Cliente;
+        $cliente->primerNombre = $request->input('primernombre');
+        $cliente->segundoNombre = $request->input('segundonombre');
+        $cliente->primerApellido = $request->input('primerapellido');
+        $cliente->segundoApellido = $request->input('segundoapellido');
+        $cliente->tipoDocumento = $request->input('tipodocumento');
+        $cliente->documento = $request->input('documento');
         $cliente->celular = $request->input('celular');
         $cliente->correo = $request->input('correo');
+        $cliente->estado = $request->input('estado') ? 1 : 2;
         $cliente->save();
         return redirect()->back()->with('success', 'Cliente creado exitosamente');
     }
@@ -64,14 +65,15 @@ class ClienteController extends Controller
     public function update(Request $request, $id)
     {
         $cliente = Cliente::find($id);
-        $cliente->primerNombre = $request->input('primerNombre');
-        $cliente->segundoNombre = $request->input('segundoNombre');
-        $cliente->primerApellido = $request->input('primerApellido');
-        $cliente->segundoApellido = $request->input('segundoApellido');
-        $cliente->tipoDocumento = $request->input('tipoDocumento');
-        $cliente->numeroDocumento = $request->input('numeroDocumento');
+        $cliente->primerNombre = $request->input('primernombre');
+        $cliente->segundoNombre = $request->input('segundonombre');
+        $cliente->primerApellido = $request->input('primerapellido');
+        $cliente->segundoApellido = $request->input('segundoapellido');
+        $cliente->tipoDocumento = $request->input('tipodocumento');
+        $cliente->documento = $request->input('documento');
         $cliente->celular = $request->input('celular');
         $cliente->correo = $request->input('correo');
+        $cliente->estado = $request->input('estado') ? 1 : 2;
         $cliente->update();
         return redirect()->back()->with('success', 'Cliente actualizado exitosamente');
     }

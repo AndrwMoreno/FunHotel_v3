@@ -22,4 +22,13 @@ class Cliente extends Model
     ];
     protected $guarded = [];
     public $timestamps = false;
+    
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            $model->estado = 'Activo';
+        });
+    }
 }

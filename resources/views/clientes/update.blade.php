@@ -1,74 +1,105 @@
-<!-- Actualiza y elimina -->
-<!-- Modal -->
-<div class="modal fade" id="modalUpdate{{ $cliente->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="modalCreateLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="modalCreateLabel">Editar cliente</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form class="row g-3" method="POST" action="{{ route('clientes.update', $cliente->id) }}"
-                    enctype="multipart/form-data">
-                    @csrf
-                    @method('PUT')
-                    <div class="col-md-6">
-                        <label for="primerNombre" class="form-label">Primer Nombre*</label>
-                        <input type="text" class="form-control" name="primerNombre" id="primerNombre"
-                            value="{{ $cliente->primerNombre }}">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="segundoNombre" class="form-label">Segundo Nombre</label>
-                        <input type="text" class="form-control" name="segundoNombre"
-                            id="segundoNombre"value="{{ $cliente->segundoNombre }}">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="primerApellido" class="form-label">Primer Apellido*</label>
-                        <input type="text" class="form-control" name="primerApellido"
-                            id="primerApellido"value="{{ $cliente->primerApellido }}">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="segundoApellido" class="form-label">Segundo Apellido</label>
-                        <input type="text" class="form-control" name="segundoApellido"
-                            id="segundoApellido"value="{{ $cliente->segundoApellido }}">
-                    </div>
-                    <div class="col-md-4">
-                        <label for="inputState" class="form-label">Tipo de documento</label>
-                        <select id="tipoDocumento" name="tipoDocumento" class="form-select">
-                            <option selected value="{{ $cliente->tipoDocumento }}" value="">
-                                {{ $cliente->tipoDocumento }}</option>
-                            <option value="CC">CC</option>
-                            <option value="CE">CE</option>
-                            <option value="TI">T.I</option>
-                            <option value="PA">PA</option>
-                        </select>
-                    </div>
-                    <div class="col-md-8">
-                        <label for="numeroDocumento" class="form-label">Número de documento</label>
-                        <input type="number" class="form-control" placeholder="00 000 000 000" name="numeroDocumento"
-                            id="numeroDocumento" value="{{ $cliente->numeroDocumento }}">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="celular" class="form-label">Celular</label>
-                        <input type="number" class="form-control" name="celular" id="celular"
-                            value="{{ $cliente->celular }}">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="correo" class="form-label">Correo</label>
-                        <input type="email" class="form-control" name="correo" id="correo"
-                            value="{{ $cliente->correo }}">
-                    </div>
-
-                    <div class="col-12">
-                        <button type="submit" class="btn btn-primary">Guardar</button>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                {{-- <button type="button" class="btn btn-primary">Understood</button> --}}
+ <!-- Actualiza y elimina -->
+  <!-- Modal -->
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+  </head>
+  <body>
+  <div class="modal fade" id="EDITAR{{$cliente->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">EDITAR CLIENTE</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="{{route('clientes.update',$cliente->id)}}" method="post" enctype="multipart/form-data">
+            @csrf <!--Clave evita error -->
+            @method('PUT') <!-- Metodo para actualizar -->
+        <div class="modal-body">  <!--BS5-form-input -->
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+            <label for="" class="form-label">Nombre</label>
+            <input type="text"                                                                             
+              class="form-control" name="primernombre" id="" aria-describedby="helpId" placeholder="" value="{{$cliente->primerNombre}}" required> 
             </div>
         </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="" class="form-label">Segundo Nombre</label>
+            <input type="text"                                                                             
+              class="form-control" name="segundonombre" id="" aria-describedby="helpId" placeholder="" value="{{$cliente->segundoNombre}}" required> 
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="" class="form-label">Primer Apellido</label>
+            <input type="text"
+              class="form-control" name="primerapellido" id="" aria-describedby="helpId" placeholder="" value="{{$cliente->primerApellido}}" required>
+            </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="" class="form-label">Segundo Apellido</label>
+            <input type="text"
+              class="form-control" name="segundoapellido" id="" aria-describedby="helpId" placeholder="" value="{{$cliente->segundoApellido}}">
+            </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="" class="form-label" >Tipo documento</label>
+            <select class="form-control" name="tipodocumento" id="tipodocumento" required >
+                <option selected value="{{$cliente->Tipodocumento}}">{{$cliente->tipoDocumento}}</option>
+                <option value="CC">Cédula ciudadana</option>
+                <option value="CE">Cédula extranjera</option>
+                <option value="TI">Tarjeta Identidad</option>
+                <option value="NIT">Nit</option>
+                <option value="PA">Pasaporte</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="" class="form-label">Documento</label>
+            <input type="text"
+              class="form-control" name="documento" id="" aria-describedby="helpId" placeholder="" value="{{$cliente->documento}}" required>
+            </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="" class="form-label">Celular</label>
+            <input type="text"
+              class="form-control" name="celular" id="" aria-describedby="helpId" placeholder="" value="{{$cliente->celular}}" required>
+            </div>
+        </div>
+        <div class="col-md-6">
+          <label for="validationCustomUsername" class="form-label">Correo</label>
+          <div class="input-group has-validation">
+            <span class="input-group-text" id="inputGroupPrepend">@</span>
+            <input type="email" placeholder="Correo" class="form-control" id="validationCustomUsername" name="correo" aria-describedby="inputGroupPrepend" value="{{$cliente->correo}}" required>
+          </div>
+      </div>
+        <div class="col-md-6">
+          <label for="" class="form-label">Estado</label>
+          <select name="estado" id="estado" class="form-control" required>
+            <option value="Activo" {{ $cliente->estado === 'Activo' ? 'selected' : '' }}><span class="color-sola">Activo</span></option>
+            <option value="Inactivo" {{ $cliente->estado === 'Inactivo' ? 'selected' : '' }}>Inactivo</option>
+          </select>
+          </div>       
+        </div><br>
+        <div class="modal-footer">
+         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="submit" class="btn btn-primary">Actualizar</button>
+        </div>
+    </form>
+      </div>
     </div>
-</div>
+  </div>
+</body>
+</html>
