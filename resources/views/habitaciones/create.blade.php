@@ -4,44 +4,47 @@
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="modalCreateLabel">Registrar nueva habitación</h1>
+                <h1 class="modal-title fs-5" id="modalCreateLabel">Registrar nuevo servicio</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form class="row g-3" method="POST" action="{{ route('habitaciones.store') }}"
-                    enctype="multipart/form-data">
+                <form action="{{ route('habitaciones.store') }}" method="post" enctype="multipart/form-data"
+                    class="row g-3">
                     @csrf
-                    <div class="col-md-12">
-                        <label for="nombre" class="form-label">Número de habitacion</label>
-                        <input type="text" class="form-control" name="numeroHabitacion" id="numeroHabitacion">
-                    </div>
-                    <div class="col-md-12">
-                        <label for="descripcion" class="form-label">Descripcion</label>
-                        <textarea type="text" class="form-control" name="descripcion" id="descripcion"></textarea>
+                    <div class="col-md-6">
+                        <label for="numeroHabitacion">Numero de Habitacion</label>
+                        <input class="form-control" type="text" name="numeroHabitacion" id="numeroHabitacion">
                     </div>
                     <div class="col-md-6">
-                        <label for="estado" class="form-label">Estado</label>
-                        <input type="text" disabled value="Activo" class="form-control" name="estado" id="estado">
+                        <label for="descripcion">Descripcion</label>
+                        <input class="form-control" type="text" name="descripcion" id="descripcion">
                     </div>
                     <div class="col-md-6">
-                        <label for="nombre" class="form-label">Id categoria</label>
-                        <select class="form-control" name="idCategoria" id="idCategoria">
-                            <option selected @disabled(true) value="">Seleccione</option>
+                        <!-- Select idCategoria -->
+                        <label for="idCategoria">Categoria</label>
+                        <select class="form-select" name="idCategoria" id="idCategoria">
+                            <option value="" selected disabled>Seleccione</option>
                             @foreach ($categorias as $categoria)
-                                <option value="{{ $categoria->id }}">{{ $categoria->nombre }}
-                                </option>
+                                <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
                             @endforeach
                         </select>
                     </div>
-
-                    <div class="col-12">
-                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    <div class="col-md-6">
+                        <label for="estado">Estado</label>
+                        <select class="form-select" name="estado" id="estado">
+                            <option value="" selected disabled>Seleccione</option>
+                            <option value="Disponible">Disponible</option>
+                            <option value="Ocupado">Ocupado</option>
+                            <option value="Mantenimiento">Mantenimiento</option>
+                        </select>
+                    </div>
+                    <div class="col-md-12">
+                        <button class="btn btn-primary" type="submit">Registrar</button>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                {{-- <button type="button" class="btn btn-primary">Understood</button> --}}
             </div>
         </div>
     </div>

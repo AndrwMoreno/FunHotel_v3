@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Models\Habitacion;
 use App\Models\Categoria;
-use Illuminate\Http\Request;
 
 class HabitacionController extends Controller
 {
@@ -23,7 +23,8 @@ class HabitacionController extends Controller
      */
     public function create()
     {
-        //
+        $categorias = Categoria::all();
+        return view('habitaciones.create', compact('categorias'));
     }
 
     /**
@@ -31,20 +32,20 @@ class HabitacionController extends Controller
      */
     public function store(Request $request)
     {
-        $habitaciones = new Habitacion();
-        $habitaciones->numeroHabitacion = $request->input('numeroHabitacion');
-        $habitaciones->descripcion = $request->input('descripcion');
-        $habitaciones->estado = $request->input('estado');
-        // $habitaciones->estado = $request->estado;
-        $habitaciones->idCategoria = $request->input('idCategoria');
-        $habitaciones->save();
-        return redirect()->back()->with('success', 'Habitacion creada exitosamente');
+        $habitacion = new Habitacion();
+        $habitacion->numeroHabitacion = $request->input('numeroHabitacion');
+        $habitacion->descripcion = $request->input('descripcion');
+        $habitacion->idCategoria = $request->input('idCategoria');
+        $habitacion->estado = $request->input('estado');
+        $habitacion->save();
+        // return redirect()->back()->with('success', 'Habitacion creada exitosamente');
+        return redirect()->route('habitaciones.index')->with('success', 'Habitacion creada exitosamente');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Habitacion $habitacion)
+    public function show(string $id)
     {
         //
     }
@@ -52,32 +53,34 @@ class HabitacionController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Habitacion $habitacion)
+    public function edit(string $id)
     {
-        //
+        $categorias = Categoria::all();
+        $habitacion = Habitacion::find($id);
+        return view('habitaciones.edit', compact('habitacion', 'categorias'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Habitacion $habitacion)
+    public function update(Request $request, string $id)
     {
-        $habitaciones = Habitacion::find($habitacion->id);
-        $habitaciones->numeroHabitacion = $request->input('numeroHabitacion');
-        $habitaciones->descripcion = $request->input('descripcion');
-        $habitaciones->estado = $request->input('estado');
-        $habitaciones->idCategoria = $request->input('idCategoria');
-        $habitaciones->update();
-        return redirect()->back()->with('success', 'Habitacion actualizada exitosamente');
+        $habitacion = Habitacion::find($id);
+        $habitacion->numeroHabitacion = $request->input('numeroHabitacion');
+        $habitacion->descripcion = $request->input('descripcion');
+        $habitacion->idCategoria = $request->input('idCategoria');
+        $habitacion->estado = $request->input('estado');
+        $habitacion->update();
+        return redirect()->route('habitaciones.index')->with('success', 'Habitacion actualizada exitosamente');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Habitacion $habitacion)
+    public function destroy(string $id)
     {
-        $habitaciones = Habitacion::find($habitacion->id);
-        $habitaciones->delete();
-        return redirect()->back()->with('success', 'Habitacion eliminada exitosamente');
+        $habitacion =habitacion::find($id);
+        $habitacion->delete();
+        return redirect()->route('habitaciones.index')->with('success', 'Habitacion eliminada exitosamente');
     }
 }

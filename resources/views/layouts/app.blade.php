@@ -54,10 +54,10 @@
                 <div class="navbar-brand-box">
                     <a href="/home" class="logo logo-light">
                         <span class="logo-sm">
-                            <img src="{{ asset('assets/images/logo-sm.png') }}" alt="" height="22">
+                            <img src="{{ asset('assets/images/logo2.png') }}" alt="" height="70">
                         </span>
                         <span class="logo-lg">
-                            <img src="{{ asset('assets/images/logo-light.png') }}" alt="" height="18">
+                            <img src="{{ asset('assets/images/logo1.png') }}" alt="" height="60">
                         </span>
                     </a>
                 </div>

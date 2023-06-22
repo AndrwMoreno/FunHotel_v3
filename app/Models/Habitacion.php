@@ -19,15 +19,6 @@ class Habitacion extends Model
     public $timestamps = false;
     protected $guarded = [];
 
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::creating(function ($model) {
-            $model->estado = 'activo'; // Establecer el valor predeterminado del estado
-        });
-    }
-
     public function categoria()
     {
         return $this->belongsTo(Categoria::class, 'idCategoria', 'id');

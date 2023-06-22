@@ -40,7 +40,7 @@
                 <div class="form-group">
                   <label for="" class="form-label">Segundo Nombre</label>
                   <input type="text" class="form-control" name="segundonombre" id="" aria-describedby="helpId"
-                    placeholder="" value="{{ $cliente->segundoNombre }}" required>
+                    placeholder="" value="{{ $cliente->segundoNombre }}">
                 </div>
               </div>
               <div class="col-md-6">
@@ -61,7 +61,7 @@
                 <div class="form-group">
                   <label for="" class="form-label">Tipo documento</label>
                   <select class="form-control" name="tipodocumento" id="tipodocumento" required>
-                    <option selected value="{{ $cliente->Tipodocumento }}">
+                    <option selected value="{{ $cliente->tipoDocumento }}">
                       {{ $cliente->tipoDocumento }}</option>
                     <option value="CC">Cédula ciudadana</option>
                     <option value="CE">Cédula extranjera</option>
@@ -92,6 +92,17 @@
                   <input type="email" placeholder="Correo" class="form-control" id="validationCustomUsername"
                     name="correo" aria-describedby="inputGroupPrepend" value="{{ $cliente->correo }}" required>
                 </div>
+              </div>
+              <div class="col-md-6">
+                <label for="" class="form-label">Estado</label>
+                <select name="estado" id="estado" class="form-control" required>
+                  <option value="Activo" {{ $cliente->estado === 'Activo' ? 'selected' : '' }}>
+                    <span class="color-sola">Activo</span>
+                  </option>
+                  <option value="Inactivo" {{ $cliente->estado === 'Inactivo' ? 'selected' : '' }}>
+                    Inactivo</option>
+                </select>
+
               </div>
             </div><br>
             <div class="modal-footer">
