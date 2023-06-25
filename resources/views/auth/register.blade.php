@@ -26,13 +26,13 @@
                     </div>
                     <div class="inputBox">
                         <input id="second_name" type="text" placeholder="segundo nombre"
-                            class="form-control @error('name') is-invalid @enderror" name="second_name"
+                            class="form-control" name="second_name"
                             value="{{ old('name') }}" autocomplete="name" autofocus />
-                        @error('name')
+                        {{-- @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
-                        @enderror
+                        @enderror --}}
                     </div>
                     <div class="inputBox">
                         <input id="surname" type="text" placeholder="apellido"
@@ -46,13 +46,13 @@
                     </div>
                     <div class="inputBox">
                         <input id="second_surname" type="text" placeholder="segundo apellido"
-                            class="form-control @error('second_surname') is-invalid @enderror" name="second_surname"
+                            class="form-control" name="second_surname"
                             value="{{ old('second_surname') }}" autocomplete="second_surname" autofocus />
-                        @error('second_surname')
+                        {{-- @error('second_surname')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
-                        @enderror
+                        @enderror --}}
                     </div>
                     <div class="inputBox">
                         <input id="birthday" type="date" placeholder="fecha de nacimiento"

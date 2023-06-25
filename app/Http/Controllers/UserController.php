@@ -14,26 +14,19 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    // public function index(Request $request)
-    // {
-    //     $data = User::orderBy('id', 'DESC')->paginate(5);
-    //     return view('users.index', compact('data'))
-    //         ->with('i', ($request->input('page', 1) - 1) * 5);
-    // }
 
     public function index(Request $request)
     {
         $data = User::select('users.*', 'roles.name as role_name', 'roles.id as role_id')
         ->leftJoin('model_has_roles', 'model_has_roles.model_id', '=', 'users.id')
         ->leftJoin('roles', 'roles.id', '=', 'model_has_roles.role_id')
-        ->orderBy('users.id', 'DESC')
-        ->paginate(5);
+        ->get();
 
         $roles = Role::pluck('name', 'name')->all();
 
-        return view('users.index', compact('data', 'roles'))
-        ->with('i', ($request->input('page', 1) - 1) * 5);
+        return view('users.index', compact('data', 'roles'));
     }
+
 
 
 

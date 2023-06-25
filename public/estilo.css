@@ -1,0 +1,433 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body,
+input {
+  /*TIPO LETRA*/
+  font-family: "Poppins", sans-serif;
+}
+
+main {
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*SOMBREADO*/
+.box {
+  position: relative;
+  width: 74%;
+  max-width: 1020px;
+  height: 530px;
+  background-color: #ededed;
+  /*SOMBREADO GRIS*/
+  border-radius: 3.3rem;
+  box-shadow: 0 60px 40px -30px rgba(0, 0, 0, 0.27);
+}
+
+.inner-box-ingresar {
+  position: absolute;
+  width: calc(75% - 1.1rem);
+  /*Espacio del contenedor con el formulario*/
+  height: calc(75% - 1.1rem);
+  top: 47%;
+  left: 49%;
+  transform: translate(-50%, -50%);
+}
+
+.inner-box-registrar {
+  position: absolute;
+  width: calc(120% - 1.1rem);
+  /*Espacio del contenedor con el formulario*/
+  height: calc(120% - 1.1rem);
+  top: 47%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.forms-wrap {
+  position: absolute;
+  height: 00%;
+  width: 45%;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  transition: 0.8s ease-in-out;
+}
+
+form {
+  /*Ancho del formulario*/
+  max-width: 270px;
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  transition: opacity 0.02s 0.4s;
+}
+
+form.sign-up-form {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.heading h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #070505;
+  /*Color letra bienvenidos*/
+}
+
+.heading h4 {
+  color: #2a2424;
+  /*lETRA, DESEA REGISTRARSE*/
+  font-weight: 350;
+  /*Negrilla*/
+  font-size: 0.80rem;
+  /*Tamaño de la letra*/
+  display: inline;
+}
+
+.toggle {
+  color: #010101;
+  text-decoration: none;
+  font-size: 0.90rem;
+  /*Tamaño letra*/
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.toggle:hover {
+  color: #614bf1;
+  /*Reflejo de color en la letra de registrar e ingresar*/
+}
+
+/*FORMULARIO INGRESAR*/
+.input-wrap {
+  position: relative;
+  height: 50px;
+  /*Espacio entre los campos del form*/
+  margin-bottom: 1rem;
+  /*Espacio entre los campos y el boton enviar*/
+}
+
+/*FORMULARIO REGISTRAR*/
+.campo-contenedor {
+  display: grid;
+  grid-template-columns: 4fr 4fr;
+  /* Dos columnas de igual ancho */
+  grid-gap: 15px;
+  /* Espacio entre los campos del form */
+  margin-bottom: 2rem;
+  /* Espacio entre los campos y el botón enviar */
+}
+
+/*FORMULARIO REGISTRAR*/
+.input-w {
+  position: relative;
+  height: 37px;
+  /* Espacio entre los campos del form */
+}
+
+/*FORMULARIO INGRESAR*/
+.input-field {
+  position: absolute;
+  width: 97%;
+  /*Largo de las rayas de los campos*/
+  height: 42%;
+  background: none;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #a49f9f;
+  /*Color de las rayas de los campos*/
+  padding: 0;
+  font-size: 0.95rem;
+  transition: 0.4s;
+}
+
+/*FORMULARIO REGISTRAR*/
+.input-f {
+  position: absolute;
+  width: 101%;
+  /*Largo de las rayas de los campos*/
+  height: 50%;
+  background: none;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #b0b0b0;
+  /*Color de las rayas de los campos*/
+  padding: 0;
+  font-size: 0.95rem;
+  transition: 0.4s;
+}
+
+label {
+  position: absolute;
+  left: 0;
+  top: 2%;
+  /*Espacio de las letras de los campos*/
+  transform: translateY(-40%);
+  font-size: 0.95rem;
+  color: rgba(127, 127, 127, 0.7);
+  /*Color de la letra de los campos*/
+  pointer-events: none;
+  transition: 0.4s;
+}
+
+.sign-btn {
+  display: inline-block;
+  width: 100%;
+  height: 43px;
+  /*Color de botón de envio*/
+  background-color: #8371fd;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.8rem;
+  font-size: 0.8rem;
+  margin-bottom: 2rem;
+  transition: 0.3s;
+}
+
+.sign-btn:hover {
+  background-color: #705dec;
+  /*Color reflejo del botón*/
+}
+
+.text {
+  color: #000000;
+  /*Color letra de olvidaste tu contra*/
+  font-size: 0.7rem;
+}
+
+/*Color letra de recuperar*/
+.text a {
+  color: #000000;
+  transition: 0.3s;
+}
+
+/*Reflejo color en recuperar*/
+.text a:hover {
+  color: #dfbc20;
+}
+
+main.sign-up-mode form.sign-in-form {
+  opacity: 0;
+  pointer-events: none;
+}
+
+main.sign-up-mode form.sign-up-form {
+  opacity: 5;
+  pointer-events: all;
+}
+
+main.sign-up-mode .forms-wrap {
+  left: 57%;
+}
+
+main.sign-up-mode .carousel {
+  left: 0%;
+}
+
+.carousel {
+  /*TAMAÑOS DEL CARRUSEL*/
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  left: 50%;
+  top: 0;
+  background-color: #3DB6B4;
+  border-radius: 3rem;
+  /*Bordes del contenedor*/
+  display: grid;
+  grid-template-rows: auto 1fr;
+  padding-bottom: 8rem;
+  /*Espacio entre imagen y letra*/
+  overflow: hidden;
+  transition: 0.8s ease-in-out;
+}
+
+.images-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.image {
+  position: relative;
+  left: 15%;
+  width: 70%;
+  /*TAMAÑO IMAGEN CARRUSEL*/
+  grid-column: 1/2;
+  grid-row: 1/2;
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.5s;
+  /*Efecto transición*/
+}
+
+.img-1 {
+  transform: translate(0, -20px);
+}
+
+.img-2 {
+  transform: scale(0.2, 0.2);
+}
+
+.img-3 {
+  transform: scale(0.3) rotate(-20deg);
+}
+
+.image.show {
+  opacity: 2;
+  transform: none;
+}
+
+.text-wrap {
+  max-height: 2.2rem;
+  /*Pone los textos del carrusel, en los tres*/
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+}
+
+.text-group {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  transform: translateY(0);
+  transition: 0.5s;
+}
+
+.text-group h2 {
+  line-height: 2.2rem;
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+
+.bullets {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bullets span {
+  display: block;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #ffffff;
+  /*Color de los botonsitos, para pasar el carrusel*/
+  margin: 0 0.25rem;
+  border-radius: 70%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.bullets span.active {
+  width: 1.1rem;
+  background-color: #eded16;
+  border-radius: 1rem;
+}
+
+@media (max-width: 850px) {
+  .box {
+    height: auto;
+    max-width: 550px;
+    overflow: hidden;
+  }
+
+  .inner-box {
+    position: static;
+    transform: none;
+    width: revert;
+    height: revert;
+    padding: 2rem;
+  }
+
+  .forms-wrap {
+    position: revert;
+    width: 100%;
+    height: auto;
+  }
+
+  form {
+    max-width: revert;
+    padding: 1.5rem 2.5rem 2rem;
+    transition: transform 0.8s ease-in-out, opacity 0.45s linear;
+  }
+
+  .heading {
+    margin: 2rem 0;
+  }
+
+  form.sign-up-form {
+    transform: translateX(100%);
+  }
+
+  main.sign-up-mode form.sign-in-form {
+    transform: translateX(-100%);
+  }
+
+  main.sign-up-mode form.sign-up-form {
+    transform: translateX(0%);
+  }
+
+  .carousel {
+    position: revert;
+    height: auto;
+    width: 100%;
+    padding: 3rem 2rem;
+    display: flex;
+  }
+
+  .images-wrapper {
+    display: none;
+  }
+
+  .text-slider {
+    width: 100%;
+  }
+}
+
+@media (max-width: 530px) {
+  main {
+    padding: 1rem;
+  }
+
+  .box {
+    border-radius: 2rem;
+  }
+
+  .inner-box {
+    padding: 1rem;
+  }
+
+  .carousel {
+    padding: 1.5rem 1rem;
+    border-radius: 1.6rem;
+  }
+
+  .text-wrap {
+    margin-bottom: 1rem;
+  }
+
+  .text-group h2 {
+    font-size: 1.2rem;
+  }
+
+  form {
+    padding: 1rem 2rem 1.5rem;
+  }
+}
