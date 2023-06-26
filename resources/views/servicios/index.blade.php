@@ -30,9 +30,11 @@
                     style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>Nombre</th>
                             <th>Descripcion</th>
                             <th>Precio</th>
+                            <th>Estado</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -41,9 +43,11 @@
                     <tbody>
                         @foreach ($servicios as $servicio)
                             <tr>
+                                <td>{{$servicio->id}}</td>
                                 <td>{{ $servicio->nombre }}</td>
                                 <td>{{ $servicio->descripcion }}</td>
                                 <td>{{ $servicio->precio }}</td>
+                                <td>{{ $servicio->estado_texto }}</td>
                                 <td>
                                     @include('servicios.update')
                                     <button type="button" class="btn btn-warning" data-bs-toggle="modal"
