@@ -8,7 +8,6 @@
         var cliente = $('#cliente').val();
         var estado = $('#estado').val().trim();
 
-  
         if (
           habitacion === '' ||
           servicio === '' ||
@@ -100,23 +99,23 @@
           @csrf
           <div class="col-md-6">
             <label for="" class="form-label"> Id Habitacion</label>
-            <input type="text" class="form-control" name="habitacion" id="" aria-describedby="helpId" placeholder="">
+            <input type="text" class="form-control" name="habitacion" id="habitacion" aria-describedby="helpId" placeholder="">
           </div>
 
           <div class="col-md-6">
             <label for="" class="form-label">Id Servicio</label>
-            <input type="text" class="form-control" name="servicio" id="" aria-describedby="helpId" placeholder="">
+            <input type="text" class="form-control" name="servicio" id="servicio" aria-describedby="helpId" placeholder="">
           </div>
           <div class="col-md-6">
             <label for="" class="form-label">Id Cliente</label>
-            <input type="text" class="form-control" name="cliente" id="" aria-describedby="helpId" placeholder="">
+            <input type="text" class="form-control" name="cliente" id="cliente" aria-describedby="helpId" placeholder="">
           </div>
           <div class="col-md-6">
             <label for="" class="form-label">Estado</label>
-            <input type="text" class="form-control" name="estado" id="" aria-describedby="helpId" placeholder="">
+            <input type="text" class="form-control" name="estado" id="estado" aria-describedby="helpId" placeholder="">
           </div>
           <div class="col-md-12">
-            <button type="submit" class="btn btn-primary">Agregar</button>
+            <button type="submit" class="btn btn-primary" id="submitButton">Agregar</button>
           </div>
         </form>
       </div>
