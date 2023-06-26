@@ -16,21 +16,14 @@ class Cliente extends Model
         'primerApellido',
         'segundoApellido',
         'tipoDocumento',
-        'numeroDocumento',
+        'documento',
         'celular',
-        'correo'
+        'correo',
+        'estado'
     ];
     protected $guarded = [];
     public $timestamps = false;
     
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::creating(function ($model) {
-            $model->estado = 'Activo';
-        });
-    }
     
     const Activo = 1;
     const Inactivo = 0;

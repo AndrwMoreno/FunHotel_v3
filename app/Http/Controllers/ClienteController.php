@@ -29,19 +29,21 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        $cliente = new Cliente;
-        $cliente->primerNombre = $request->input('primernombre');
-        $cliente->segundoNombre = $request->input('segundonombre');
-        $cliente->primerApellido = $request->input('primerapellido');
-        $cliente->segundoApellido = $request->input('segundoapellido');
-        $cliente->tipoDocumento = $request->input('tipodocumento');
-        $cliente->documento = $request->input('documento');
-        $cliente->celular = $request->input('celular');
-        $cliente->correo = $request->input('correo');
-        $cliente->estado = $request->input('estado') ? 1 : 2;
-        $cliente->save();
-        return redirect()->back()->with('success', 'Cliente creado exitosamente');
+        $cliente = Cliente::create([
+            'primerNombre' => $request->input('primernombre'),
+            'segundoNombre' => $request->input('segundonombre'),
+            'primerApellido' => $request->input('primerapellido'),
+            'segundoApellido' => $request->input('segundoapellido'),
+            'tipoDocumento' => $request->input('tipodocumento'),
+            'documento' => $request->input('documento'),
+            'celular' => $request->input('celular'),
+            'correo' => $request->input('correo'),
+            'estado' => Cliente::Activo,
+        ]);
+
+        return redirect()->route('clientes.index')->with('success', 'Cliente creado exitosamente');
     }
+
 
     /**
      * Display the specified resource.
@@ -73,7 +75,8 @@ class ClienteController extends Controller
         $cliente->documento = $request->input('documento');
         $cliente->celular = $request->input('celular');
         $cliente->correo = $request->input('correo');
-        $cliente->estado = $request->input('estado') ? 1 : 2;
+        // $cliente->estado = $request->input('estado') ? 1 : 2;
+        $cliente->estado = $request->input('estado');
         $cliente->update();
         return redirect()->back()->with('success', 'Cliente actualizado exitosamente');
     }

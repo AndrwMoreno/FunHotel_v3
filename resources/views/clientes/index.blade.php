@@ -34,6 +34,7 @@
                             <th>Segundo Apellido</th>
                             <th>Tipo documento</th>
                             <th>Documento</th>
+                            <th>Estado</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -48,6 +49,7 @@
                                 <td>{{ $cliente->segundoApellido }}</td>
                                 <td>{{ $cliente->tipoDocumento }}</td>
                                 <td>{{ $cliente->documento }}</td>
+                                <td>{{$cliente->estado_texto}}</td>
                                 <td>
                                     <button type="button" class="btn btn-success btn-ver-mas" data-bs-toggle="modal"
                                         data-bs-target="#VER{{ $cliente->id }}">

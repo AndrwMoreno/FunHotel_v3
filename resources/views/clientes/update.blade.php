@@ -95,13 +95,12 @@
               </div>
               <div class="col-md-6">
                 <label for="" class="form-label">Estado</label>
-                <select name="estado" id="estado" class="form-control" required>
-                  <option value="Activo" {{ $cliente->estado === 'Activo' ? 'selected' : '' }}>
-                    <span class="color-sola">Activo</span>
-                  </option>
-                  <option value="Inactivo" {{ $cliente->estado === 'Inactivo' ? 'selected' : '' }}>
-                    Inactivo</option>
-                </select>
+                <select class="form-select" name="estado" id="estado">
+                <option value="{{ \App\Models\Cliente::Activo }}"
+                    @if ($cliente->estado == \App\Models\Cliente::Activo) selected @endif>Activo</option>
+                <option value="{{ \App\Models\Cliente::Inactivo }}"
+                    @if ($cliente->estado == \App\Models\Cliente::Inactivo) selected @endif>Inactivo</option>
+            </select>
 
               </div>
             </div><br>
