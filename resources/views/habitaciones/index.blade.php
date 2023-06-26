@@ -40,7 +40,7 @@
                                 <td>{{ $habitacion->numeroHabitacion }}</td>
                                 <td>{{ $habitacion->descripcion }}</td>
                                 <td>{{ $habitacion->categoria->nombre }}</td>
-                                <td>{{ $habitacion->estado }}</td>
+                                <td>{{ $habitacion->estado_texto }}</td>
                                 <td>
 
                                     <button type="button" class="btn btn-warning" data-bs-toggle="modal"
@@ -53,8 +53,9 @@
                                         <i class="bi bi-trash3"></i>
                                     </button>
                                 </td>
-                                @include('habitaciones.edit')
-                                @include('habitaciones.delete')
+                            </tr>
+                            @include('habitaciones.edit')
+                            @include('habitaciones.delete')
                         @endforeach
                     </tbody>
 
@@ -62,4 +63,19 @@
             </div>
         </div>
     </div>
+    @push('styles')
+        <style>
+            .table-success {
+                background-color: #dff0d8;
+            }
+
+            .table-warning {
+                background-color: #fcf8e3;
+            }
+
+            .table-danger {
+                background-color: #f2dede;
+            }
+        </style>
+    @endpush
 @endsection

@@ -30,13 +30,14 @@
                         </select>
                     </div>
                     <div class="col-md-6">
-                        <label for="estado">Estado</label>
+                        {{-- <label for="estado">Estado</label>
                         <select class="form-select" name="estado" id="estado">
-                            <option value="" selected disabled>Seleccione</option>
-                            <option value="Disponible">Disponible</option>
-                            <option value="Ocupado">Ocupado</option>
-                            <option value="Mantenimiento">Mantenimiento</option>
-                        </select>
+                            <option value="" selected disabled>{{ \App\Models\Habitacion::Disponible }}</option>
+                        </select> --}}
+                        <label for="estado">Estado</label>
+                        <input type="text" class="form-control" placeholder="Disponible" disabled>
+                        <input type="hidden" id="estado" name="estado" value="{{ \App\Models\Habitacion::Disponible}}">
+
                     </div>
                     <div class="col-md-12">
                         <button class="btn btn-primary" type="submit">Registrar</button>

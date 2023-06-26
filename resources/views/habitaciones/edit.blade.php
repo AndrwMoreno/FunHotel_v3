@@ -34,19 +34,17 @@
                             </select>
                         </div>
                         <div class="col-md-6">
-
                             <label for="estado">Estado</label>
                             <select class="form-select" name="estado" id="estado">
-                                {{-- <option value="" selected disabled>Seleccione</option> --}}
-                                <option value="Disponible" @if ($habitacion->estado == 'Disponible') selected @endif>Disponible
-                                </option>
-                                <option value="Ocupado" @if ($habitacion->estado == 'Ocupado') selected @endif>Ocupado
-                                </option>
-                                <option value="Mantenimiento" @if ($habitacion->estado == 'Mantenimiento') selected @endif>
-                                    Mantenimiento
-                                </option>
+                                <option value="{{ \App\Models\Habitacion::Disponible }}"
+                                    @if ($habitacion->estado == \App\Models\Habitacion::Disponible) selected @endif>Disponible</option>
+                                <option value="{{ \App\Models\Habitacion::Ocupado }}"
+                                    @if ($habitacion->estado == \App\Models\Habitacion::Ocupado) selected @endif>Ocupado</option>
+                                <option value="{{ \App\Models\Habitacion::Mantenimiento }}"
+                                    @if ($habitacion->estado == \App\Models\Habitacion::Mantenimiento) selected @endif>Mantenimiento</option>
                             </select>
                         </div>
+
                         <br>
                     </div>
                     <br>

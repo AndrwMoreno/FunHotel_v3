@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('numeroHabitacion');
             $table->text('descripcion');
             $table->unsignedBigInteger('idCategoria');
-            $table->string('estado');
+            $table->integer('estado')->default(1);
             $table->timestamps();
 
             $table->foreign('idCategoria')

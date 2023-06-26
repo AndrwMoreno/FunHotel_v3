@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Habitacion;
 use App\Models\Categoria;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class HabitacionController extends Controller
 {
@@ -36,9 +37,11 @@ class HabitacionController extends Controller
         $habitacion->numeroHabitacion = $request->input('numeroHabitacion');
         $habitacion->descripcion = $request->input('descripcion');
         $habitacion->idCategoria = $request->input('idCategoria');
-        $habitacion->estado = $request->input('estado');
+        // $habitacion->estado = $request->input('estado');
+        $habitacion->estado = Habitacion::Disponible;
         $habitacion->save();
-        // return redirect()->back()->with('success', 'Habitacion creada exitosamente');
+
+
         return redirect()->route('habitaciones.index')->with('success', 'Habitacion creada exitosamente');
     }
 
@@ -56,7 +59,8 @@ class HabitacionController extends Controller
     public function edit(string $id)
     {
         $categorias = Categoria::all();
-        $habitacion = Habitacion::find($id);
+        // $habitacion = Habitacion::find($id);
+        $habitacion = Habitacion::findOrFail($id);
         return view('habitaciones.edit', compact('habitacion', 'categorias'));
     }
 
@@ -65,11 +69,15 @@ class HabitacionController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $habitacion = Habitacion::find($id);
+        // $habitacion = Habitacion::find($id);
+        $habitacion = Habitacion::findOrFail($id);
         $habitacion->numeroHabitacion = $request->input('numeroHabitacion');
         $habitacion->descripcion = $request->input('descripcion');
         $habitacion->idCategoria = $request->input('idCategoria');
-        $habitacion->estado = $request->input('estado');
+        // $habitacion->estado = $request->input('estado');
+        $estado = $request->input('estado');
+        $estadoValue = Habitacion::getEstadoValue($estado); // Obtiene el valor entero correspondiente al estado
+        $habitacion->estado = $estadoValue;
         $habitacion->update();
         return redirect()->route('habitaciones.index')->with('success', 'Habitacion actualizada exitosamente');
     }
