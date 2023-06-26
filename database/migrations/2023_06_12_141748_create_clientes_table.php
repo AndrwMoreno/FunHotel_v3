@@ -22,7 +22,7 @@ return new class extends Migration
             $table->bigInteger('numeroDocumento');
             $table->bigInteger('celular');
             $table->string('correo');
-            $table->string('estado')->default('activo');
+            $table->Integer('estado')->default(1)->after('correo');
             $table->timestamps();
         });
     }

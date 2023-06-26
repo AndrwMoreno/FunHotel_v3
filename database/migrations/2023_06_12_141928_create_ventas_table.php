@@ -16,7 +16,7 @@ return new class extends Migration
             // fecha_venta, idServicio, estado
             $table->date('fecha_venta');
             $table->unsignedBigInteger('idServicio');
-            $table->string('estado');
+            $table->Integer('estado')->default(1);
             $table->timestamps();
 
             $table->foreign('idServicio')

@@ -16,6 +16,7 @@ return new class extends Migration
             // nombre y descripcion
             $table->string('nombre');
             $table->text('descripcion');
+            $table->Integer('estado')->default(1);
             $table->timestamps();
         });
     }

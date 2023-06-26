@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nombre');
             $table->text('descripcion');
             $table->unsignedBigInteger('idServicio');
+            $table->Integer('estado')->default(1);
             $table->timestamps();
 
             $table->foreign('idServicio')

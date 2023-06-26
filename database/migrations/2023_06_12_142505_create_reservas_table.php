@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('idServicio');
             $table->unsignedBigInteger('idCliente');
             // estado
-            $table->string('estado');
+            $table->Integer('estado')->default(1);
             $table->timestamps();
 
             $table->foreign('idHabitacion')
