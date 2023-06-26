@@ -12,8 +12,8 @@ class ReservaController extends Controller
      */
     public function index()
     {
-        $reservas=Reserva::all();
-        return view('reservas.index',compact('reservas'));
+        $reservas = Reserva::all();
+        return view('reservas.index', compact('reservas'));
         //
     }
 
@@ -31,10 +31,10 @@ class ReservaController extends Controller
     public function store(Request $request)
     {
         $reservas = new Reserva;
-        $reservas->idHabitacion=$request->input('habitacion');
-        $reservas->idServicio=$request->input('servicio');
-        $reservas->idCliente=$request->input('cliente');
-        $reservas->estado=$request->input('estado');
+        $reservas->idHabitacion = $request->input('habitacion');
+        $reservas->idServicio = $request->input('servicio');
+        $reservas->idCliente = $request->input('cliente');
+        $reservas->estado = $request->input('estado');
         $reservas->save();
         return redirect()->back();
         //
@@ -61,11 +61,11 @@ class ReservaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $reservas=Reserva::find($id);
-        $reservas->idHabitacion=$request->input('habitacion');
-        $reservas->idServicio=$request->input('servicio');
-        $reservas->idCliente=$request->input('cliente');
-        $reservas->estado=$request->input('estado');
+        $reservas = Reserva::find($id);
+        $reservas->idHabitacion = $request->input('habitacion');
+        $reservas->idServicio = $request->input('servicio');
+        $reservas->idCliente = $request->input('cliente');
+        $reservas->estado = $request->input('estado');
         $reservas->update();
         return redirect()->back();
         //
@@ -76,7 +76,7 @@ class ReservaController extends Controller
      */
     public function destroy($id)
     {
-        $reservas=Reserva::find($id);
+        $reservas = Reserva::find($id);
         $reservas->delete();
         return redirect()->back();
         //

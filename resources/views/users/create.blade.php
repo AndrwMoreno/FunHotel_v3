@@ -1,94 +1,65 @@
-@extends('layouts.app')
-@section('content')
-    <div class="container">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Crear nuevo usuario</h2>
+<!-- Modal -->
+<div class="modal fade" id="modalCreate" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="modalCreateLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalCreateLabel">Registrar nuevo servicio</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('users.index') }}">Volver</a>
+            <div class="modal-body">
+                <form class="row g-3" method="POST" action="{{ route('users.store') }}" enctype="multipart/form-data">
+                    @csrf
+                    <div class="col-md-6">
+                        <label for="name" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" name="name" id="name">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="second_name" class="form-label">Segundo nombre</label>
+                        <input type="text" class="form-control" name="second_name" id="second_name">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="surname" class="form-label">Apellido</label>
+                        <input type="text" class="form-control" name="surname" id="surname">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="second_surname" class="form-label">Segundo apellido</label>
+                        <input type="text" class="form-control" name="second_surname" id="second_surname">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="birthday" class="form-label">Fecha de nacimiento</label>
+                        <input type="date" class="form-control" name="birthday" id="birthday">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="email" class="form-label">Correo</label>
+                        <input type="email" class="form-control" name="email" id="email">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="password" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" name="password" id="password">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="password" class="form-label">Confirmar contraseña</label>
+                        {!! Form::password('confirm-password', array('placeholder' => 'Confirm Password','class' =>
+                        'form-control'))
+                        !!}
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <strong>Rol:</strong>
+                            {!! Form::select('roles[]', $roles,[], array('class' => 'form-control','multiple')) !!}
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                {{-- <button type="button" class="btn btn-primary">Understood</button> --}}
             </div>
         </div>
     </div>
-    @if (count($errors) > 0)
-        <div class="alert alert-danger">
-            <strong>¡Ups!</strong> Hubo algunos problemas con tus datos de entrada.
-            <br><br>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-    <br>
-    <div class="container">
-        <form action="{{ route('users.store') }}" method="POST" class="row g-3">
-            @csrf
-
-            <div class="col-md-6">
-                <div class="form-group">
-                    <strong>Nombre:</strong>
-                    <input type="text" name="name" placeholder="Nombre" class="form-control">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <strong>Segundo Nombre:</strong>
-                    <input type="text" name="second_name" placeholder="Segundo Nombre" class="form-control">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <strong>Apellido:</strong>
-                    <input type="text" name="surname" placeholder="Apellido" class="form-control">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <strong>Segundo Apellido:</strong>
-                    <input type="text" name="second_surname" placeholder="Segundo Apellido" class="form-control">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Fecha de nacimiento:</strong>
-                    <input type="date" name="birthday" placeholder="Fecha de nacimiento" class="form-control">
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="form-group">
-                    <strong>Email:</strong>
-                    <input type="text" name="email" placeholder="Email" class="form-control">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <strong>Contraseña:</strong>
-                    <input type="password" name="password" placeholder="Contraseña" class="form-control">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <strong>Confirmar Contraseña:</strong>
-                    <input type="password" name="confirm-password" placeholder="Confirmar Contraseña" class="form-control">
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="form-group">
-                    <strong>Rol:</strong>
-                    <select name="roles[]" class="form-control">
-                        <option value="" selected disabled>Seleccione un rol</option>
-                        @foreach ($roles as $role)
-                            <option value="{{ $role }}">{{ $role }}</option>
-                        @endforeach
-                    </select>
-                </div>
-            </div>
-            <div class="col-12">
-                <button type="submit" class="btn btn-primary">Registrar</button>
-            </div>
-
-        </form>
-    </div>
-@endsection
+</div>

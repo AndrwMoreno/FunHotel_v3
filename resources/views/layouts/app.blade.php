@@ -11,8 +11,7 @@
     <!-- Bootstrap CSS v5.2.1 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.1/dist/css/bootstrap.min.css">
 
 
     <!-- App favicon -->
@@ -37,13 +36,12 @@
     <!-- App Css-->
     <link href="{{ asset('assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css">
 
+    <!--     CLIENTES       -->
+    {{-- <link rel="stylesheet" href="{{ asset('css/clientes.css') }}"> --}}
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet" />
 
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-
-    <!--     LOADER       -->
-    <link rel="stylesheet" href="{{ asset('css/loader.css') }}">
 </head>
 
 <body data-sidebar="dark">
@@ -52,22 +50,29 @@
             <div class="d-flex">
                 <!-- LOGO -->
                 <div class="navbar-brand-box">
-                    <a href="/home" class="logo logo-light">
+                    <a href="index.html" class="logo logo-dark">
                         <span class="logo-sm">
-                            <img src="{{ asset('assets/images/logo2.png') }}" alt="" height="70">
+                            <img src="assets/images/logo-sm.png" alt="" height="22">
                         </span>
                         <span class="logo-lg">
-                            <img src="{{ asset('assets/images/logo1.png') }}" alt="" height="60">
+                            <img src="assets/images/logo-dark.png" alt="" height="17">
+                        </span>
+                    </a>
+
+                    <a href="index.html" class="logo logo-light">
+                        <span class="logo-sm">
+                            <img src="assets/images/logo-sm.png" alt="" height="22">
+                        </span>
+                        <span class="logo-lg">
+                            <img src="assets/images/logo-light.png" alt="" height="18">
                         </span>
                     </a>
                 </div>
 
-                @auth
-                    <button type="button" class="btn btn-sm px-3 font-size-24 header-item waves-effect"
-                        id="vertical-menu-btn">
-                        <i class="mdi mdi-menu"></i>
-                    </button>
-                @endauth
+                <button type="button" class="btn btn-sm px-3 font-size-24 header-item waves-effect"
+                    id="vertical-menu-btn">
+                    <i class="mdi mdi-menu"></i>
+                </button>
             </div>
 
             <div class="d-flex">
@@ -80,43 +85,43 @@
 
 
                 @guest
-                    @if (Route::has('login'))
-                        <div class="dropdown d-none d-md-block ms-2">
-                            <button type="button" class="btn header-item waves-effect">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </button>
-                        </div>
-                    @endif
-                    @if (Route::has('register'))
-                        <div class="dropdown d-none d-md-block ms-2">
-                            <button type="button" class="btn header-item waves-effect">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                            </button>
-                        </div>
-                    @endif
+                @if (Route::has('login'))
+                <div class="dropdown d-none d-md-block ms-2">
+                    <button type="button" class="btn header-item waves-effect">
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    </button>
+                </div>
+                @endif
+                @if (Route::has('register'))
+                <div class="dropdown d-none d-md-block ms-2">
+                    <button type="button" class="btn header-item waves-effect">
+                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    </button>
+                </div>
+                @endif
                 @else
-                    <div class="dropdown d-inline-block">
-                        <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="rounded-circle header-profile-user"
-                                src="{{ asset('assets/images/users/user-4.jpg') }}" alt="Header Avatar">
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-end">
-                            <!-- item-->
-                            <a class="dropdown-item" href="#"><i
-                                    class="mdi mdi-account-circle font-size-17 align-middle me-1"></i>
-                                {{ Auth::user()->name }}</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item text-danger" href="{{ route('logout') }}"
-                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
-                                    class="bx bx-power-off font-size-17 align-middle me-1 text-danger"></i>
-                                {{ __('Logout') }}</a>
+                <div class="dropdown d-inline-block">
+                    <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img class="rounded-circle header-profile-user" src="assets/images/users/user-4.jpg"
+                            alt="Header Avatar">
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <!-- item-->
+                        <a class="dropdown-item" href="#"><i
+                                class="mdi mdi-account-circle font-size-17 align-middle me-1"></i>
+                            {{ Auth::user()->name }}</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-danger" href="{{ route('logout') }}"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
+                                class="bx bx-power-off font-size-17 align-middle me-1 text-danger"></i>
+                            {{ __('Logout') }}</a>
 
-                            <form id='logout-form' action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </div>
+                        <form id='logout-form' action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     </div>
+                </div>
                 @endguest
 
 
@@ -132,95 +137,109 @@
     </header>
 
     @auth
-        <!-- ========== Left Sidebar Start ========== -->
-        <div class="vertical-menu">
+    <!-- ========== Left Sidebar Start ========== -->
+    <div class="vertical-menu">
 
-            <div data-simplebar class="h-100">
+        <div data-simplebar class="h-100">
 
-                <!--- Sidemenu -->
-                <div id="sidebar-menu">
-                    <!-- Left Menu Start -->
-                    <ul class="metismenu list-unstyled" id="side-menu">
-                        <li class="menu-title">Main</li>
+            <!--- Sidemenu -->
+            <div id="sidebar-menu">
+                <!-- Left Menu Start -->
+                <ul class="metismenu list-unstyled" id="side-menu">
+                    <li class="menu-title">Main</li>
 
-                        <li>
-                            <a href="/home" class="waves-effect">
-                                <i class="ti-home"></i><span class="badge rounded-pill bg-primary float-end">1</span>
-                                <span>Inicio</span>
-                            </a>
-                        </li>
+                    <li>
+                        <a href="/home" class="waves-effect">
+                            <i class="ti-home"></i><span class="badge rounded-pill bg-primary float-end">1</span>
+                            <span>Inicio</span>
+                        </a>
+                    </li>
 
-                        <li>
-                            <a href="/clientes" class=" waves-effect">
-                                <i class="ti-user"></i>
-                                <span>Clientes</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/servicios" class=" waves-effect">
-                                <i class="ti-server"></i>
-                                <span>Servicios</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/catalogos" class=" waves-effect">
-                                <i class="ti-layout-tab"></i>
-                                <span>Catalogos</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/ventas" class=" waves-effect">
-                                <i class="bi bi-shop-window"></i>
-                                <span>Ventas</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/categorias" class=" waves-effect">
-                                <i class="bi bi-tags"></i>
-                                <span>Categorias</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/habitaciones" class=" waves-effect">
-                                <i class="bi bi-hospital-fill"></i>
-                                <span>Habitaciones</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/reservas" class=" waves-effect">
-                                <i class="bi bi-calendar3"></i>
-                                <span>Reservas</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/checkins" class=" waves-effect">
-                                <i class="bi bi-check-square"></i>  
-                                <span>Check-in</span>
-                            </a>
-                        </li>
+                    <li>
+                        <a href="/clientes" class=" waves-effect">
+                            <i class="ti-user"></i>
+                            <span>Clientes</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/servicios" class=" waves-effect">
+                            <i class="ti-server"></i>
+                            <span>Servicios</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/catalogos" class=" waves-effect">
+                            <i class="ti-layout-tab"></i>
+                            <span>Catalogos</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/ventas" class=" waves-effect">
+                            <i class="bi bi-shop-window"></i>
+                            <span>Ventas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/categorias" class=" waves-effect">
+                            <i class="bi bi-tags"></i>
+                            <span>Categorias</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/habitaciones" class=" waves-effect">
+                            <i class="bi bi-hospital-fill"></i>
+                            <span>Habitaciones</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/reservas" class=" waves-effect">
+                            <i class="bi bi-calendar3"></i>
+                            <span>Reservas</span>
+                        </a>
+                    </li>
 
-                        <li>
-                            <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                <i class="bi bi-motherboard"></i>
-                                <span>Otros</span>
-                            </a>
-                            <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="/users">Usuarios</a></li>
-                                <li><a href="/roles">Roles</a></li>
-                                <li><a href="/groups">Grupos</a></li>
-                                <!-- <li><a href="#">Email Compose</a></li> -->
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <!-- Sidebar -->
+                    <li>
+                        <a href="/checkins" class=" waves-effect">
+                            <i class="bi bi-calendar3"></i>
+                            <span>Check-in</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/checkouts" class=" waves-effect">
+                            <i class="bi bi-calendar3"></i>
+                            <span>Check-Out</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/pagos" class=" waves-effect">
+                            <i class="bi bi-calendar3"></i>
+                            <span>Metodo de pago</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="ti-email"></i>
+                            <span>Otros</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="/users">Usuarios</a></li>
+                            <li><a href="/roles">Roles</a></li>
+                            <!-- <li><a href="#">Email Compose</a></li> -->
+                        </ul>
+                    </li>
+                </ul>
             </div>
+            <!-- Sidebar -->
         </div>
-        <!-- Left Sidebar End -->
+    </div>
+    <!-- Left Sidebar End -->
     @endauth
 
     <!-- Right Sidebar -->
-    {{-- <div class="right-bar">
+    <div class="right-bar">
         <div data-simplebar class="h-100">
             <div class="rightbar-title px-3 py-4">
                 <a href="javascript:void(0);" class="right-bar-toggle float-end">
@@ -247,14 +266,13 @@
                 </div>
                 <div class="form-check form-switch mb-3">
                     <input type="checkbox" class="form-check-input theme-choice" id="dark-mode-switch"
-                        data-bsStyle="assets/css/bootstrap-dark.min.css"
-                        data-appStyle="assets/css/app-dark.min.css" />
+                        data-bsStyle="assets/css/bootstrap-dark.min.css" data-appStyle="assets/css/app-dark.min.css" />
                     <label class="form-check-label" for="dark-mode-switch">Dark Mode</label>
                 </div>
             </div>
 
         </div> <!-- end slimscroll-menu-->
-    </div> --}}
+    </div>
     <!-- /Right-bar -->
 
     <div class="main-content">
@@ -262,7 +280,6 @@
             <div class="container-fluid">
                 <div class="row">
                     <main class="py-4">
-                        @include('loader')
                         @yield('content')
                     </main>
                 </div>
@@ -285,6 +302,14 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
     </script>
     <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
+
+
+    {{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script> --}}
 
 
     <!-- JAVASCRIPT -->
@@ -315,12 +340,12 @@
 
     <script src="{{ asset('assets/js/app.js') }}"></script>
 
+    {{-- <script src="{{ asset('js/validacion.js') }}"></script> --}}
 
     <script src="https://kit.fontawesome.com/d7b674392a.js" crossorigin="anonymous"></script>
-
-
-    <!-- App js loader -->
-    <script src="{{ asset('js/loader.js') }}"></script>
+    {{--
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.1/dist/js/bootstrap.min.js"></script> --}}
 
 
 </body>

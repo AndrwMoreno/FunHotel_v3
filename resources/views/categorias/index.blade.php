@@ -30,10 +30,8 @@
                     style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                     <thead>
                         <tr>
-                            <th>Id</th>
                             <th>Nombre</th>
                             <th>Descripcion</th>
-                            <th>Estado</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -42,10 +40,8 @@
                     <tbody>
                         @foreach ($categorias as $categoria)
                             <tr>
-                                <td>{{$categoria->id}}</td>
                                 <td>{{ $categoria->nombre }}</td>
                                 <td>{{ $categoria->descripcion }}</td>
-                                <td>{{$categoria->estado_texto}}</td>
                                 <td>
                                     @include('categorias.update')
                                     <button type="button" class="btn btn-warning" data-bs-toggle="modal"

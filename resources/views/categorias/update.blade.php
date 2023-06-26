@@ -21,13 +21,6 @@
                         <label for="descripcion" class="form-label">Descripcion</label>
                         <textarea type="text" class="form-control" name="descripcion" id="descripcion">{{ $categoria->descripcion }}</textarea>
                     </div>
-                    <div class="col-md-5">
-                        <label for="estado" class="form-label">Estado</label>
-                        <select class="form-select" name="estado" id="estado">
-                            <option value="{{\App\Models\Categoria::Activo}}" {{ $categoria->estado == \App\Models\Categoria::Activo ? 'selected' : '' }}>Activo</option>
-                            <option value="{{\App\Models\Categoria::Inactivo}}" {{ $categoria->estado == \App\Models\Categoria::Inactivo ? 'selected' : '' }}>Inactivo</option>
-                        </select>
-                    </div>
 
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary">Guardar</button>

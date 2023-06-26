@@ -22,17 +22,10 @@
                         <textarea type="text" class="form-control" name="descripcion" id="descripcion">{{ $servicio->descripcion }}</textarea>
                     </div>
 
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <label for="precio" class="form-label">Precio</label>
                         <input type="text" class="form-control" name="precio" id="precio"
                             value="{{ $servicio->precio }}">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="estado" class="form-label">Estado</label>
-                        <select class="form-select" name="estado" id="estado">
-                            <option value="{{\App\Models\Servicio::Activo}}" {{ $servicio->estado == \App\Models\Servicio::Activo ? 'selected' : '' }}>Activo</option>
-                            <option value="{{\App\Models\Servicio::Inactivo}}" {{ $servicio->estado == \App\Models\Servicio::Inactivo ? 'selected' : '' }}>Inactivo</option>
-                        </select>
                     </div>
 
                     <div class="col-12">

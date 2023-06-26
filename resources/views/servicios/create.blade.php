@@ -17,14 +17,9 @@
                         <label for="descripcion" class="form-label">Descripcion</label>
                         <textarea type="text" class="form-control" name="descripcion" id="descripcion"></textarea>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <label for="precio" class="form-label">Precio</label>
                         <input type="number" class="form-control" name="precio" id="precio" placeholder="100.000.000">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="estado" class="form-label">Estado</label>
-                        <input type="text" value="Activo" disabled>
-                        <input type="hidden" class="form-control" name="estado" id="estado" value="{{\App\Models\Servicio::Activo}}">
                     </div>
 
                     <div class="col-12">

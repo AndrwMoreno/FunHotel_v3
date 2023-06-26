@@ -37,7 +37,6 @@ class CatalogoController extends Controller
         $catalogos->nombre = $request->input('nombre');
         $catalogos->descripcion = $request->input('descripcion');
         $catalogos->idServicio = $request->input('idServicio');
-        $catalogos->estado = Catalogo::Activo;
         $catalogos->save();
         return redirect()->back()->with('success', 'Catalogo creado exitosamente');
     }
@@ -68,7 +67,6 @@ class CatalogoController extends Controller
         $catalogo->nombre = $request->input('nombre');
         $catalogo->descripcion = $request->input('descripcion');
         $catalogo->idServicio = $request->input('idServicio');
-        $catalogo->estado = $request->input('estado');
         $catalogo->update();
         return redirect()->back()->with('success', 'Catalogo actualizado exitosamente');
     }

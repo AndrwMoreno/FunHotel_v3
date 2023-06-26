@@ -18,11 +18,6 @@
                         <label for="descripcion" class="form-label">Descripcion</label>
                         <textarea type="text" class="form-control" name="descripcion" id="descripcion"></textarea>
                     </div>
-                    <div class="col-md-5">
-                        <label for="estado" class="form-label">Estado</label>
-                        <input type="text" value="Activo" disabled class="form-control">
-                        <input type="hidden" class="form-control" name="estado" id="estado" value="{{\App\Models\Categoria::Activo}}">
-                    </div>
 
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary">Guardar</button>
@@ -30,7 +25,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 {{-- <button type="button" class="btn btn-primary">Understood</button> --}}
             </div>
         </div>

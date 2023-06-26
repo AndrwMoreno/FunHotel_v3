@@ -32,7 +32,6 @@ class CategoriaController extends Controller
         $categorias = new Categoria();
         $categorias->nombre = $request->input('nombre');
         $categorias->descripcion = $request->input('descripcion');
-        $categorias->estado = Categoria::Activo;
         $categorias->save();
         return redirect()->back()->with('success', 'Categoria creada exitosamente');
     }
@@ -61,7 +60,6 @@ class CategoriaController extends Controller
         $categorias = Categoria::find($categoria->id);
         $categorias->nombre = $request->input('nombre');
         $categorias->descripcion = $request->input('descripcion');
-        $categorias->estado = $request->input('estado');
         $categorias->update();
         return redirect()->back()->with('success', 'Categoria actualizada exitosamente');
     }

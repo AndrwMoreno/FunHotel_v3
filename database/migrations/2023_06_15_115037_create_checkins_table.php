@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('checkins', function (Blueprint $table) {
             $table->id();
             $table->datetime("fecha de ingreso");
-            $table->Integer('estado')->default(1);
             $table->timestamps();
         });
     }

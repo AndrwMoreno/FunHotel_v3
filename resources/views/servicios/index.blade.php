@@ -4,7 +4,7 @@
     <div class="page-title-box">
         <div class="row align-items-center">
             <div class="col-md-8">
-                <h6 class="page-title">Datos usuarios</h6>
+                <h6 class="page-title">Datos servicios</h6>
             </div>
 
             <div class="col-md-4">
@@ -30,11 +30,9 @@
                     style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                     <thead>
                         <tr>
-                            <th>Id</th>
                             <th>Nombre</th>
                             <th>Descripcion</th>
                             <th>Precio</th>
-                            <th>Estado</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -43,11 +41,9 @@
                     <tbody>
                         @foreach ($servicios as $servicio)
                             <tr>
-                                <td>{{$servicio->id}}</td>
                                 <td>{{ $servicio->nombre }}</td>
                                 <td>{{ $servicio->descripcion }}</td>
                                 <td>{{ $servicio->precio }}</td>
-                                <td>{{ $servicio->estado_texto }}</td>
                                 <td>
                                     @include('servicios.update')
                                     <button type="button" class="btn btn-warning" data-bs-toggle="modal"

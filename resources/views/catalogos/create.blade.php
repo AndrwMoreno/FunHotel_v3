@@ -19,7 +19,7 @@
                         <label for="descripcion" class="form-label">Descripcion</label>
                         <textarea type="text" class="form-control" name="descripcion" id="descripcion"></textarea>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <label for="nombre" class="form-label">Id servicio</label>
                         <select class="form-control" name="idServicio" id="idServicio">
                             <option selected @disabled(true) value="">Seleccione</option>
@@ -28,12 +28,6 @@
                                 </option>
                             @endforeach
                         </select>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="">Estado</label>
-                        <input type="text" value="Activo" class="form-control" disabled>
-                        <input type="hidden" class="form-control" name="estado" id="estado"
-                            value="{{ \App\Models\Catalogo::Activo }}">
                     </div>
 
                     <div class="col-12">

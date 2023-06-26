@@ -22,7 +22,7 @@
                         <textarea type="text" class="form-control" name="descripcion" id="descripcion">{{ $catalogo->descripcion }}</textarea>
                     </div>
 
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <label for="" class="form-label">Servicio</label>
                         <select class="form-control" name="idServicio" id="idServicio">
                             <option disabled value="">Seleccione</option>
@@ -31,13 +31,6 @@
                                     {{ $servicio->nombre }}
                                 </option>
                             @endforeach
-                        </select>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="estado" class="form-label">Estado</label>
-                        <select class="form-select" name="estado" id="estado">
-                            <option value="{{\App\Models\Catalogo::Activo}}" {{ $catalogo->estado == \App\Models\Catalogo::Activo ? 'selected' : '' }}>Activo</option>
-                            <option value="{{\App\Models\Catalogo::Inactivo}}" {{ $catalogo->estado == \App\Models\Catalogo::Inactivo ? 'selected' : '' }}>Inactivo</option>
                         </select>
                     </div>
 

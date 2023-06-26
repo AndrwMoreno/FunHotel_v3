@@ -73,7 +73,7 @@ class CheckinController extends Controller
     public function destroy($id)
     {
         $checkins = Checkin::find($id);
-        $checkins->update();
+        $checkins->delete();
         return redirect()->back();
         //
     }
