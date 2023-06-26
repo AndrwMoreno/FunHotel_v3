@@ -14,10 +14,17 @@
 
     <form method="POST" action="{{ route('roles.store') }}" class="row g-3">
         @csrf
-        <div class="col-md-12">
+        <div class="col-md-6">
             <div class="form-group">
                 <strong>Nombre:</strong>
                 <input type="text" name="name" placeholder="Nombre" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <strong>Estado:</strong>
+                <input type="text" value="Activo" disabled class="form-control">
+                <input type="hidden" name="estado" id="estado" value="{{ Spatie\Permission\Models\Role::Activo}}" class="form-control">
             </div>
         </div>
         <div class="col-md-8">
@@ -40,6 +47,7 @@
                 </div>
             </div>
         </div>
+        
         <div class="col-md-12">
             <button type="submit" class="btn btn-primary">Guardar</button>
         </div>

@@ -25,8 +25,6 @@ class Role extends Model implements RoleContract
     use HasPermissions;
     use RefreshesPermissionCache;
 
-    // protected $fillable = ['nombre', 'estado'];
-
     protected $guarded = [];
 
     public function __construct(array $attributes = [])
@@ -195,5 +193,38 @@ class Role extends Model implements RoleContract
         }
 
         return $this->permissions->contains($permission->getKeyName(), $permission->getKey());
+    }
+
+      /**
+       * Roles states constants
+       * @var int
+       */
+
+
+    const Activo = 1;
+    const Inactivo = 0;
+
+    public function getEstadoTextoAttribute()
+    {
+        switch ($this->estado) {
+            case Role::Activo:
+                return 'Activo';
+            case Role::Inactivo:
+                return 'Inactivo';
+            default:
+                return 'Desconocido';
+        }
+    }
+
+    public static function getEstadoValue($estado)
+    {
+        switch ($estado) {
+            case 'Activo':
+                return 1;
+            case 'Inactivo':
+                return 0;
+            default:
+                return 69; // Valor por defecto si el estado no coincide con ninguno de los valores anteriores
+        }
     }
 }

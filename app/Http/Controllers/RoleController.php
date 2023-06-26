@@ -30,12 +30,12 @@ class RoleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $roles = Role::orderBy('id', 'DESC')->paginate(5);
-        return view('roles.index', compact('roles'))
-            ->with('i', ($request->input('page', 1) - 1) * 5);
+        $roles = Role::get();
+        return view('roles.index', compact('roles'));
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -60,7 +60,8 @@ class RoleController extends Controller
             'estado' => 'required',
         ]);
         $role = Role::create(['name' => $request->input('name')]);
-        $role = Role::create(['estado' => $request->input('estado')]);
+        // $role = Role::create(['estado' => $request->input('estado')]);
+        $role->estado = Role::Activo;
         $role->syncPermissions($request->input('permission'));
         return redirect()->route('roles.index')
             ->with('success', 'Role created successfully');
@@ -112,6 +113,10 @@ class RoleController extends Controller
         ]);
         $role = Role::find($id);
         $role->name = $request->input('name');
+        $role->estado = $request->input('estado');
+        // $estado = $request->input('estado');
+        // $estadoValue = Role::getEstadoValue($estado);
+        // $role->estado = $estadoValue; // Obtiene el valor entero correspondiente al estado
         $role->save();
         $role->syncPermissions($request->input('permission'));
         return redirect()->route('roles.index')

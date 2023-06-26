@@ -34,16 +34,14 @@
             </div>
         </div>
         <div class="col-md-6">
-                <label for="" class="form-label">Estado</label>
-                <select name="estado" id="estado" class="form-control" required>
-                  <option value="Activo" {{ $role->estado === 'Activo' ? 'selected' : '' }}>
-                    <span class="color-sola">Activo</span>
-                  </option>
-                  <option value="Inactivo" {{ $role->estado === 'Inactivo' ? 'selected' : '' }}>
-                    Inactivo</option>
-                </select>
-
-              </div>
+            <label for="estado">Estado</label>
+            <select class="form-select" name="estado" id="estado">
+                <option value="{{ \Spatie\Permission\Models\Role::Activo }}"
+                    @if ($role->estado == \Spatie\Permission\Models\Role::Activo) selected @endif>Activo</option>
+                <option value="{{ \Spatie\Permission\Models\Role::Inactivo }}"
+                    @if ($role->estado == \Spatie\Permission\Models\Role::Inactivo) selected @endif>Inactivo</option>
+            </select>
+        </div>
         <div class="col-md-8">
             <div class="form-group">
                 <strong>Permisos:</strong>
@@ -66,7 +64,8 @@
             </div>
         </div>
         <div class="col-md-12">
-            <button type="submit" class="btn btn-primary" onclick="return confirm('¿Estás seguro de guardar los cambios?')">Guardar</button>
+            <button type="submit" class="btn btn-primary"
+                onclick="return confirm('¿Estás seguro de guardar los cambios?')">Guardar</button>
         </div>
     </form>
 @endsection

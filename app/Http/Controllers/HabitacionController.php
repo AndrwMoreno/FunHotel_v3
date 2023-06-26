@@ -74,11 +74,11 @@ class HabitacionController extends Controller
         $habitacion->numeroHabitacion = $request->input('numeroHabitacion');
         $habitacion->descripcion = $request->input('descripcion');
         $habitacion->idCategoria = $request->input('idCategoria');
-        // $habitacion->estado = $request->input('estado');
-        $estado = $request->input('estado');
-        $estadoValue = Habitacion::getEstadoValue($estado); // Obtiene el valor entero correspondiente al estado
-        $habitacion->estado = $estadoValue;
-        $habitacion->update();
+        $habitacion->estado = $request->input('estado');
+        // $estado = $request->input('estado');
+        // $estadoValue = Habitacion::getEstadoValue($estado); // Obtiene el valor entero correspondiente al estado
+        // $habitacion->estado = $estadoValue;
+        $habitacion->save();
         return redirect()->route('habitaciones.index')->with('success', 'Habitacion actualizada exitosamente');
     }
 

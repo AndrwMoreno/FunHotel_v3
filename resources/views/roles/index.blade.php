@@ -36,7 +36,7 @@
                     width: 100%;">
 
                     <thead>
-                        <th>No</th>
+                        <th>No. ID</th>
                         <th>Nombre</th>
                         <th>Fecha de creación</th>
                         <th>Estado</th>
@@ -46,10 +46,10 @@
                     <tbody>
                         @foreach ($roles as $key => $role)
                             <tr>
-                                <td>{{ ++$i }}</td>
+                                <td>{{ $role->id }}</td>
                                 <td>{{ $role->name }}</td>
                                 <td>{{ $role->created_at }}</td>
-                                <td>{{ $role->estado }}</td>
+                                <td>{{ $role->estado_texto }}</td>
                                 <td>
                                     <a class="btn btn-success" href="{{ route('roles.show', $role->id) }}"><i
                                             class="bi bi-info-circle"></i></a>
@@ -105,5 +105,4 @@
         </div>
     </div>
 
-    {!! $roles->render() !!}
 @endsection

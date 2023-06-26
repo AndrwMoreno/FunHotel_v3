@@ -10,9 +10,6 @@ class Habitacion extends Model
 {
     use HasFactory;
 
-    const Disponible = 1;
-    const Ocupado = 2;
-    const Mantenimiento = 3;
     protected $table = "habitaciones";
     protected $primaryKey = 'id';
     protected $fillable = [
@@ -22,12 +19,15 @@ class Habitacion extends Model
     ];
     public $timestamps = false;
     protected $guarded = [];
-
+    
     public function categoria()
     {
         return $this->belongsTo(Categoria::class, 'idCategoria', 'id');
     }
-
+    
+    const Disponible = 1;
+    const Ocupado = 2;
+    const Mantenimiento = 3;
     public function getEstadoTextoAttribute()
     {
         switch ($this->estado) {
